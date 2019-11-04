@@ -4,10 +4,10 @@ services:
   - docker
 
 before-install:
-  - docker build -t borisullmann/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t borisullmann/react -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true borisullmann/react-test npm test
+  - docker run -e CI=true borisullmann/react npm test
 
 after_success:
   - docker build -t borisullmann/multi-client ./client
