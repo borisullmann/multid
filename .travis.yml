@@ -8,7 +8,7 @@ before-install:
   - docker build -t borisullmann/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true borisullmann/react-test npm test
+  - docker run borisullmann/react-test npm test -- --coverage
 
 after_success:
   - docker build -t borisullmann/multi-client ./client
